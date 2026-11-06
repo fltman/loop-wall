@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="sv">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Loop Wall</title>
+<link rel="icon" href="data:,">
+<style>
+  html, body { margin: 0; height: 100%; background: #000; overflow: hidden; }
+  body { cursor: none; }
+  canvas { display: block; width: 100vw; height: 100vh; }
+  #fx { position: fixed; inset: 0; width: 100vw; height: 100vh; display: none; }
+  video.under { position: fixed; left: 0; top: 0; width: 160px; height: 90px; z-index: -1; }
+  /* Bara i debug-läget: kamerabilden i ett hörn, speglad som gubben, med punkterna ovanpå. */
+  video.cam, #camdbg { position: fixed; right: 14px; bottom: 14px; width: 360px; height: 202px; z-index: 5; }
+  video.cam { transform: scaleX(-1); opacity: .8; border: 1px solid #333; object-fit: cover; }
+  #camdbg { z-index: 6; pointer-events: none; display: none; }
+  #start { position: fixed; inset: 0; display: grid; place-items: center; background: #000;
+    color: #8a93a6; font: 15px/1.5 ui-monospace, Menlo, monospace; cursor: pointer; }
+  #count { position: fixed; left: 50%; top: 17%; transform: translate(-50%, -50%); opacity: 0;
+    font: 700 24vh/1 ui-sans-serif, system-ui, -apple-system, Helvetica, sans-serif; pointer-events: none; }
+  #debug.jam { top: auto !important; bottom: 40px; }
+  #debug { position: fixed; left: 14px; top: 12px; margin: 0; display: none; pointer-events: none;
+    color: #9fe8b0; font: 12px/1.4 ui-monospace, Menlo, monospace; text-shadow: 0 0 4px #000; }
+</style>
+</head>
+<body>
+<canvas id="wall"></canvas>
+<canvas id="fx"></canvas>
+<div id="count"></div>
+<canvas id="camdbg" width="360" height="202"></canvas>
+<pre id="debug"></pre>
+<div id="start">klicka för att starta</div>
+<script type="module" src="/src/main.js"></script>
+</body>
+</html>

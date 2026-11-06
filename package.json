@@ -1,0 +1,24 @@
+{
+  "name": "loop-wall",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Ett publikt, interaktivt konstverk: förbipasserande spelar musik med kroppen, lager för lager.",
+  "scripts": {
+    "start": "node server.mjs",
+    "test": "node --test test/*.test.mjs",
+    "smoke": "node test/smoke.mjs",
+    "models": "mkdir -p models && curl -fsSL -o models/pose_landmarker_lite.task https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_lite/float16/latest/pose_landmarker_lite.task && curl -fsSL -o models/pose_landmarker_full.task https://storage.googleapis.com/mediapipe-models/pose_landmarker/pose_landmarker_full/float16/latest/pose_landmarker_full.task"
+  },
+  "dependencies": {
+    "@mediapipe/tasks-vision": "^1.2.2"
+  },
+  "devDependencies": {
+    "playwright": "1.64.1"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fltman/loop-wall"
+  }
+}
